@@ -44,5 +44,5 @@ def home():
     return "LyricLens Backend is running!", 200
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # Default 5000 if no PORT env var
+    port = int(os.environ.get("PORT", 10000))  # Default 10000 if no PORT env var
     app.run(host="0.0.0.0", port=port)
