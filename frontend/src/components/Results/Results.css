@@ -1,0 +1,33 @@
+.chart-and-album {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+    margin: 2rem 0;
+}
+
+.album-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.album-art {
+    width: 160px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease;
+}
+
+    .album-art:hover {
+        transform: scale(1.03);
+    }
+
+@media (max-width: 600px) {
+    .chart-and-album {
+        flex-direction: column;
+    }
+}
