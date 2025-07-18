@@ -3,7 +3,7 @@ services:
     name: lyriclens-backend
     env: python
     buildCommand: ""
-    startCommand: gunicorn app:app
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
     envVars:
       - key: GENIUS_API_KEY
         sync: false
@@ -15,4 +15,4 @@ services:
     region: oregon
     autoDeploy: true
     build:
-      context: backend
+      
