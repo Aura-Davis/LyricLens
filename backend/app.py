@@ -4,7 +4,7 @@ from analysis.nlp_utils import analyze_lyrics
 from analysis.genius_api_utils import fetch_lyrics
 from analysis.spotify_api_utils import search_track
 import config
-
+import os
 
 app = Flask(__name__)
 CORS(app)
@@ -44,4 +44,5 @@ def home():
     return "LyricLens Backend is running!", 200
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # Default 5000 if no PORT env var
+    app.run(host="0.0.0.0", port=port)
