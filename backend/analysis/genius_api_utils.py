@@ -20,18 +20,27 @@ def clean_lyrics(raw_lyrics):
 
 def scrape_lyrics_from_url(url):
     """Scrape lyrics directly from the Genius song page."""
-    response = requests.get(url)
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+    }
+
+    response = requests.get(url, headers=headers)
+    if response.status_code != 200:
+        print(f"Scraping error: Received status code {response.status_code}")
+        return None
+
     soup = BeautifulSoup(response.text, "html.parser")
     lyrics_div = soup.find("div", class_="Lyrics__Root")
     if lyrics_div:
         return lyrics_div.get_text(separator="\n").strip()
 
-    # Fallback for older Genius layout
     containers = soup.select("div.lyrics, div[class^='Lyrics__Container']")
     if containers:
         return "\n".join([c.get_text(separator="\n") for c in containers]).strip()
 
+    print("Lyrics not found in any container")
     return None
+
 
 
 def fetch_lyrics(title, artist, retries=3):
