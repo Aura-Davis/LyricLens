@@ -1,17 +1,35 @@
-.chart-and-album {
+.results-container {
+    padding: 20px;
+}
+
+.lyrics-block {
+    padding: 10px;
+    white-space: pre-wrap;
+}
+
+.dominant-emotion {
+    font-weight: bold;
+    color: #7c3aed; /* Purple tone */
+    margin-left: 8px;
+}
+
+.chart-album-wrapper {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    gap: 40px;
+    margin-top: 20px;
     flex-wrap: wrap;
-    gap: 2.5rem;
-    margin: 2rem 0;
+    align-items: center;
+    justify-content: center;
+}
+
+.chart-container {
+    width: 300px;
+    height: 300px;
 }
 
 .album-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
+    max-width: 200px;
 }
 
 .album-art {
@@ -26,8 +44,13 @@
         transform: scale(1.03);
     }
 
-@media (max-width: 600px) {
-    .chart-and-album {
-        flex-direction: column;
-    }
+.spotify-link {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.genius-link {
+    display: block;
+    margin-top: 30px;
 }

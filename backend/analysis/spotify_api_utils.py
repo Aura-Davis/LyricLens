@@ -9,9 +9,9 @@ sp = spotipy.Spotify(auth_manager=SpotifyClientCredentials(
 
 def search_track(title, artist):
     query = f"track:{title} artist:{artist}"
-    print("Spotify search query:", query)
+    #print("Spotify search query:", query)
     results = sp.search(q=query, type="track", limit=1, market="US")
-    print("Spotify search result:", results)
+    #print("Spotify search result:", results)
 
     if results["tracks"]["items"]:
         track = results["tracks"]["items"][0]
